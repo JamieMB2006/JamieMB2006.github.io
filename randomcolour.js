@@ -1,4 +1,3 @@
-
 // HTML Elements
 const randomRGBElement = document.getElementById("original");
 const button1Element = document.getElementById("button 1");
@@ -7,6 +6,8 @@ const button3Element = document.getElementById("button 3");
 const button4Element = document.getElementById("button 4");
 const button5Element = document.getElementById("button 5");
 const button6Element = document.getElementById("button 6");
+const streakelement = document.getElementById("streak");
+
 
 // Random RGB Colour
 function generateColour() {
@@ -33,9 +34,9 @@ let mainColour = generateColour();
 let randNum = Math.floor(Math.random() * (buttonArray.length - 1));
 
 buttonArray[randNum].style.backgroundColor = mainColour;
-randomRGBElement.value += mainColour;
+randomRGBElement.value = "Guess the colour: " + mainColour;
 
-buttonArray = buttonArray.filter(function(item) {
+buttonArray = buttonArray.filter(function (item) {
     return item != buttonArray[randNum];
 })
 
@@ -46,7 +47,11 @@ buttonArray.forEach(element => {
 function onButtonClick(event) {
     if (event.target.style.backgroundColor == mainColour) {
         alert("Correct!");
+        streakelement.innerHTML = (parseInt(streakelement.innerHTML) + 1).toString();
     } else {
         alert("incorrect");
+        streakelement.innerHTML = 0
     }
 }
+
+
