@@ -17,7 +17,10 @@ function colour() {
 const idAlert = document.getElementById("alertbtn");
 idAlert.addEventListener("click", alertFunction);
 idAlert.addEventListener("click", alertFunctionTwo);
-idAlert.addEventListener("mouseover", mOver);
+// idAlert.addEventListener("mouseover", mOver);
+idAlert.addEventListener("mouseover", function () {
+    document.getElementById("change").innerHTML += "Mouse over<br>";
+});
 
 function alertFunction() {
     alert("Hello!");
@@ -27,6 +30,6 @@ function alertFunctionTwo() {
     alert("Hello again!");
 }
 
-function mOver() {
-    document.getElementById("change").innerHTML += "Mouse over<br>";
-}
+// function mOver() {
+//     document.getElementById("change").innerHTML += "Mouse over<br>";
+// }
